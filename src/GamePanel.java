@@ -1,10 +1,14 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel implements ActionListener{
+	
 	final int MENU = 0;
 	final int GAME = 1;
 	final int END = 2;
@@ -12,8 +16,13 @@ public class GamePanel extends JPanel{
 	 Font titleFont = new Font("Arial", Font.PLAIN, 50);
 	 Font subtitle1 = new Font("Arial", Font.PLAIN, 24);
 	 Font subtitle2 = new Font("Arial", Font.PLAIN, 22);
-	 
+	 Timer frameDraw;
 	
+	public GamePanel(Timer frameDraw){
+		 this.frameDraw=frameDraw;
+		 
+	 }
+	 
 	@Override
 	public void paintComponent(Graphics g){
 		if(currentState == MENU){
@@ -49,4 +58,11 @@ public class GamePanel extends JPanel{
 	 g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);}
 	 void drawEndState(Graphics g)  {g.setColor(Color.RED);
 	 g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+
